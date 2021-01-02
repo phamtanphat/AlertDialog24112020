@@ -18,6 +18,12 @@ public class MainActivity extends AppCompatActivity {
         mBtnShowDialog = findViewById(R.id.buttonShowDialog);
 
         // Design pattern java : 22 design pattern
+        Order order = new Order.Builder()
+                .setOrderType(OrderType.ON_SITE)
+                .set
+                .build();
+
+        Log.d("BBB",order.getOrderType() + "");
 
     }
 }

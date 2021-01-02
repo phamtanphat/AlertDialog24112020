@@ -47,4 +47,40 @@ public class Order {
     public void setVegetableType(VegetableType vegetableType) {
         this.vegetableType = vegetableType;
     }
+
+    static class Builder implements OrderBuild{
+        private OrderType orderType;
+        private BreakType breakType;
+        private SauceType sauceType;
+        private VegetableType vegetableType;
+
+        @Override
+        public OrderBuild setOrderType(OrderType orderType) {
+            this.orderType = orderType;
+            return this;
+        }
+
+        @Override
+        public OrderBuild setBreakType(BreakType breakType) {
+            this.breakType = breakType;
+            return this;
+        }
+
+        @Override
+        public OrderBuild setSauceType(SauceType sauceType) {
+            this.sauceType = sauceType;
+            return this;
+        }
+
+        @Override
+        public OrderBuild setVegetableType(VegetableType vegetableType) {
+            this.vegetableType = vegetableType;
+            return this;
+        }
+
+        @Override
+        public Order build() {
+            return new Order(orderType,breakType,sauceType,vegetableType);
+        }
+    }
 }
