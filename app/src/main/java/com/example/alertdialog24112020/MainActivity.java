@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         mBtnShowDialog = findViewById(R.id.buttonShowDialog);
 
         // Design pattern java : 22 design pattern
-        Log.d("BBB",OrderType.ON_SITE.getValue() + "");
 
     }
 }
