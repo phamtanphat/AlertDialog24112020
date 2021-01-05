@@ -30,10 +30,17 @@ public class MainActivity extends AppCompatActivity {
         mBtnShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String[] arrMonHocs =  {"PHP" , "JAVASCRIPT" , "ANDROID" , "IOS" , "MEAN"};
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this)
-                                        .setTitle("Thông báo")
-                                        .setMessage("Phiên bản mới cần được cập nhật!!")
+                                        .setTitle("Lựa chọn môn học")
                                         .setIcon(R.mipmap.ic_launcher)
+                                        .setCancelable(false)
+                                        .setSingleChoiceItems(arrMonHocs, -1, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Toast.makeText(MainActivity.this, arrMonHocs[which], Toast.LENGTH_SHORT).show();
+                                            }
+                                        })
                                         .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
@@ -45,14 +52,7 @@ public class MainActivity extends AppCompatActivity {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 dialog.dismiss();
                                             }
-                                        })
-                                        .setNeutralButton("Hủy", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-
-                                            }
-                                        })
-                                        .setCancelable(true);
+                                        });
                 alertDialog.show();
             }
         });
