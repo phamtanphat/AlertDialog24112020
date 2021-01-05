@@ -30,7 +30,18 @@ public class MainActivity extends AppCompatActivity {
         mBtnShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AppDialogs appDialogs = new AppDialogs(MainActivity.this);
+                appDialogs.setChallengeDialog(new OnListenClickDialogChallenge() {
+                    @Override
+                    public void onClose() {
+                        Toast.makeText(MainActivity.this, "Tắt", Toast.LENGTH_SHORT).show();
+                    }
 
+                    @Override
+                    public void onTryAgain() {
+                        Toast.makeText(MainActivity.this, "Try Again", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
